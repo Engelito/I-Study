@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import Entry, filedialog, Text
+from tkinter import Entry, Frame, Label, filedialog, Text
 import os
+from tkinter.constants import END
 
 root = tk.Tk()
 
@@ -18,12 +19,25 @@ e2 = Entry(frame, width =50 ,bg="#75E6DA", fg = "white", borderwidth= 2, font=("
 e2.pack()
 e2.insert(0,"Enter course hours")
 
-
+def click():
+    course = e.get() + " - " + e2.get() + " hours"
+    mylabel = Label(root,text= course)
+    mylabel.pack()
+    e.delete(0,END)
+    e2.delete(0,END)
+    #changes made
+    #another change
+def submit():
+    mylabel = print("all courses sumbitted")
+    mylabel.pack()
 
 addCourse = tk.Button(frame, text="Add course", padx=10, pady=5, 
-                    fg="white", bg="#FFB52E")
-submit = tk.Button(frame, text="Submit", padx=21, pady=5, 
-                    fg="white", bg="#75E6DA")
+                    fg="white", bg="#75E6DA", command=click)
+submit = tk.Button(frame, text="Submit", padx=21, pady=5 , 
+                    fg="white", bg="#75E6DA", command=submit)
+def thing():
+    print("This works")
+
 addCourse.pack()
 submit.pack()
 
